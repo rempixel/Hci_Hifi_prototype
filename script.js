@@ -72,3 +72,37 @@ document.addEventListener('click', e => {
 		e.target.closest('.window').remove();
 	}
 });
+
+function addimage() {
+    var img = document.createElement("img");
+    img.src = "./Christmas_TREE.png";
+    
+    img.onload = function () { // Ensure the image is fully loaded
+        var ratio = 0.5; // Set your desired scale ratio
+        img.width = img.naturalWidth * ratio; // Scale width
+        img.height = img.naturalHeight * ratio; // Scale height
+    }     
+
+    var class_name = "foo";
+    img.setAttribute("class", class_name);
+    
+    document.getElementById("window1Content").appendChild(img);
+     $(img).draggable();
+  }
+
+  function addimage2() {
+    var img = document.createElement("img");
+    img.src = "./Christmas_TREE.png";
+    
+    img.onload = function () { // Ensure the image is fully loaded
+        var ratio = 0.5; // Set your desired scale ratio
+        img.width = img.naturalWidth * ratio; // Scale width
+        img.height = img.naturalHeight * ratio; // Scale height
+    }     
+       
+    var class_name = "foo";
+    img.setAttribute("class", class_name);
+    
+    document.getElementById("window2Content").appendChild(img);
+     $(img).draggable();
+  }

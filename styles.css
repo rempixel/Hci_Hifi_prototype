@@ -69,7 +69,29 @@ body {
 	box-shadow: 1px 1px 2px #000;
 }
 
-.resizer {
+.image-pane{
+
+}
+
+.green {
+	background-color: limegreen;
+}
+
+.yellow {
+	background-color: yellow;
+}
+
+.red {
+	cursor: pointer;
+	background-color: red;
+}
+
+#myWindow2 {
+	top: 0;
+	left: 500px;
+}
+
+/* .resizer {
     position: absolute;
     width: 10px;
     height: 10px;
@@ -101,22 +123,4 @@ body {
     bottom: -1px;
     right: -1px;
     cursor: se-resize;
-}
-
-.green {
-	background-color: limegreen;
-}
-
-.yellow {
-	background-color: yellow;
-}
-
-.red {
-	cursor: pointer;
-	background-color: red;
-}
-
-#myWindow2 {
-	top: 0;
-	left: 500px;
-}
+} */
