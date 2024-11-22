@@ -24,7 +24,8 @@ body {
 	padding: 5px;
     border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
-    border: 2px solid #864100;
+    border: 2px solid #502e0e;
+	box-shadow: 2px 4px 1px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -53,7 +54,8 @@ body {
 	border-top-right-radius: 5px;
 	border-top-left-radius: 5px;
 	padding: 5px;
-	background-color: #864100;
+	background-color: #502e0e;
+	box-shadow: 2px 4px 1px rgba(0, 0, 0, 0.5);
 }
 
 .window-top-no-bind {
@@ -67,6 +69,38 @@ body {
 	border: none;
 	margin-right: 6px;
 	box-shadow: 1px 1px 2px #000;
+}
+
+.window-toolbar {
+	position: absolute;
+	top: 0;
+	text-align: center;
+	font-size: 8px;
+	left: -14%;
+	width: 50px;
+	height: 300px;
+	background-color: rgba(255, 255, 255, .15);
+	backdrop-filter: blur(5px);
+	border-radius: 5px 5px 5px 5px;
+	border: 2px solid #502e0e;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 2s, visibility 2s;
+}
+
+.toolbar-move {
+	cursor: move;
+	text-align: center;
+	height: 10px;
+	border-bottom: 1px solid rgba(0,0,0,0.5);
+	background-color: #502e0e;
+}
+
+.window:hover .window-toolbar,
+.window-toolbar:hover {
+	opacity: 1;
+	visibility: visible;
+	transition: opacity 100ms, visibility 100ms;
 }
 
 .pane-wrapper{
