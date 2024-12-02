@@ -105,8 +105,6 @@ makeDraggable(document.querySelector('#myWindow'));
 // myWindow2 will be able to moved by grabbing the entire element
 makeDraggable(document.querySelector('#myWindow2'));
 
-makeDraggable(document.querySelector('#imagePane1'));
-
 //Close the window on click of a red button
 document.addEventListener('click', e => {
 	if (e.target.closest('.round.red')) {
@@ -148,3 +146,8 @@ function addimage() {
      $(img).draggable();
   }
 
+  const image_pane = document.getElementById("image_1");
+
+  image_pane.addEventListener('click', () => {
+    image_pane.classList.toggle('active');
+  });
