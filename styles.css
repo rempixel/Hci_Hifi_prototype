@@ -26,24 +26,8 @@ body {
 	border-bottom-left-radius: 5px;
     border: 2px solid #502e0e;
 	box-shadow: 2px 4px 1px rgba(0, 0, 0, 0.5);
-}
-
-
-.window-input {
-	display: block;
-	font-family: monospace;
-	width: calc(100% - 12px);
-	background-color: #ffdaaa;
-	color: #fff;
-	border: 4px solid #fff;
-	border-bottom-right-radius: 5px;
-	border-bottom-left-radius: 5px;
-	padding: 2px;
+	overflow: hidden;
 	position: relative;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	outline: 0;
 }
 
 .window-top, .window-top-no-bind {
@@ -120,9 +104,10 @@ body {
     justify-content: center;
     font-size: 24px;
     position: relative;
-    width: 60px;
-    height: 60px;
-    cursor: move;
+    width: 25px;
+    height: 25px;
+    cursor: grab;
+	position: absolute;
     box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
     overflow: hidden;
   

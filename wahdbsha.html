@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hover Dropdown Demo</title>
+  <style>
+    .dropdown-wrapper {
+      position: relative;
+      display: inline-block;
+      margin: 50px;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      padding: 10px 20px;
+      background-color: #0078d7;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .dropdown {
+      position: absolute;
+      top: 50px;
+      left: 0;
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 400ms, visibility 400ms;
+      z-index: 10;
+    }
+
+    .dropdown-wrapper:hover .dropdown,
+    .dropdown:hover {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 100ms, visibility 100ms;
+    }
+
+    .dropdown-item {
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .dropdown-item:hover {
+      background-color: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+  <div class="dropdown-wrapper">
+    Hover Me
+    <div class="dropdown">
+      <div class="dropdown-item">Option 1</div>
+      <div class="dropdown-item">Option 2</div>
+      <div class="dropdown-item">Option 3</div>
+    </div>
+  </div>
+</body>
+</html>

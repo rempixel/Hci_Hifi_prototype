@@ -11,6 +11,45 @@ windows.forEach(window => {
     })
 })
 
+
+const container = document.getElementById('window1Content');
+const img = document.getElementById('image_1');
+
+let offsetX = 0;
+let offsetY = 0;
+let isDragging = false;
+
+// Dragging starts
+img.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    offsetX = e.offsetX;
+    offsetY = e.offsetY;
+    img.style.cursor = 'grabbing';
+});
+
+document.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+
+    const rect = container.getBoundingClientRect();
+
+    let x = e.clientX - rect.left - offsetX;
+    let y = e.clientY - rect.top - offsetY;
+
+    // Constrain the image to the container
+    x = Math.max(0, Math.min(x, rect.width - img.offsetWidth));
+    y = Math.max(0, Math.min(y, rect.height - img.offsetHeight));
+
+    img.style.left = `${x}px`;
+    img.style.top = `${y}px`;
+
+    container.appendChild(img); // Ensure image is inside the container
+});
+
+document.addEventListener('mouseup', () => {
+    isDragging = false;
+    img.style.cursor = 'grab';
+});
+
 function makeDraggable (element) {
     // Make an element draggable (or if it has a .window-top class, drag based on the .window-top element)
     let currentPosX = 0, currentPosY = 0, previousPosX = 0, previousPosY = 0;
@@ -108,3 +147,4 @@ function addimage() {
     document.getElementById("window2Content").appendChild(img);
      $(img).draggable();
   }
+

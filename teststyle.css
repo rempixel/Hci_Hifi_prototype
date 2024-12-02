@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    background-color: #333;
+    overflow: hidden;
+    padding: 0.5rem;
+}
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu-item {
+    position: relative;
+    margin: 0;
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    display: block;
+    transition: background 0.3s;
+}
+
+.menu-item a:hover {
+    background-color: #575757;
+}
+
+.dropdown-menu {
+    list-style-type: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    display: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1000;
+}
+
+.dropdown-menu li a {
+    padding: 0.5rem 1rem;
+}
+
+.menu-item.dropdown:hover .dropdown-menu {
+    display: block;
+}
