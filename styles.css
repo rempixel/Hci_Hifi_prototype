@@ -24,7 +24,7 @@ body {
 	padding: 5px;
     border-bottom-right-radius: 5px;
 	border-bottom-left-radius: 5px;
-    border: 2px solid #502e0e;
+    border: 2px solid #333333;
 	box-shadow: 2px 4px 1px rgba(0, 0, 0, 0.5);
 	overflow: hidden;
 	position: relative;
@@ -38,7 +38,7 @@ body {
 	border-top-right-radius: 5px;
 	border-top-left-radius: 5px;
 	padding: 5px;
-	background-color: #502e0e;
+	background-color: #333333;
 	box-shadow: 2px 4px 1px rgba(0, 0, 0, 0.5);
 }
 
@@ -47,12 +47,31 @@ body {
 }
 
 .round {
-	height: 16px;
-	width: 16px;
-	border-radius: 50%;
-	border: none;
-	margin-right: 6px;
-	box-shadow: 1px 1px 2px #000;
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 20px;
+    height: 20px;
+    background-color: transparent; /*#ff5c5c Windows close button red */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.round:hover{
+	background-color: #ff5c5c;
+}
+.round::before {
+    content: "×"; /* Unicode for the 'X' */
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    line-height: 1;
+    pointer-events: none;
 }
 
 .window-toolbar {
@@ -66,10 +85,10 @@ body {
 	background-color: rgba(255, 255, 255, .15);
 	backdrop-filter: blur(5px);
 	border-radius: 5px 5px 5px 5px;
-	border: 2px solid #502e0e;
+	border: 2px solid #333333;
 	opacity: 0;
 	visibility: hidden;
-	transition: opacity 2s, visibility 2s;
+	transition: opacity 1s, visibility 1s;
 }
 
 .toolbar-move {
@@ -77,14 +96,14 @@ body {
 	text-align: center;
 	height: 10px;
 	border-bottom: 1px solid rgba(0,0,0,0.5);
-	background-color: #502e0e;
+	background-color: #333333;
 }
 
 .window:hover .window-toolbar,
 .window-toolbar:hover {
 	opacity: 1;
 	visibility: visible;
-	transition: opacity 100ms, visibility 100ms;
+	transition: opacity 300ms, visibility 300ms;
 }
 
 .pane-wrapper{
@@ -97,7 +116,7 @@ body {
 }
 
 .image-pane{
-	background-color: mediumvioletred;
+	background-color: transparent;
     color: #fafafa;
     display: flex;
     align-items: center;
@@ -113,7 +132,7 @@ body {
 }
 
 .image-pane.active{
-	border-color: blue;
+	border-color: rgb(33, 255, 192);
 }
 
 .green {
@@ -128,6 +147,46 @@ body {
 	cursor: pointer;
 	background-color: red;
 }
+
+/* Resize Handles */
+.resize-handle {
+    position: absolute;
+    background: transparent;
+    z-index: 10;
+}
+
+/* Edge Handles */
+.resize-handle.top, .resize-handle.bottom {
+    height: 5px;
+    width: 100%;
+    cursor: ns-resize;
+}
+
+.resize-handle.left, .resize-handle.right {
+    width: 5px;
+    height: 100%;
+    cursor: ew-resize;
+}
+
+/* Corner Handles */
+.resize-handle.top-left, .resize-handle.top-right,
+.resize-handle.bottom-left, .resize-handle.bottom-right {
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    cursor: nwse-resize;
+}
+
+.resize-handle.top-left { top: -5px; left: -5px; }
+.resize-handle.top-right { top: -5px; right: -5px; }
+.resize-handle.bottom-left { bottom: -5px; left: -5px; }
+.resize-handle.bottom-right { bottom: -5px; right: -5px; }
+
+.resize-handle.top { top: -5px; left: 0; }
+.resize-handle.bottom { bottom: -5px; left: 0; }
+.resize-handle.left { left: -5px; top: 0; }
+.resize-handle.right { right: -5px; top: 0; }
+
 
 #myWindow2 {
 	top: 0;

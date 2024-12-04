@@ -107,47 +107,35 @@ makeDraggable(document.querySelector('#myWindow2'));
 
 //Close the window on click of a red button
 document.addEventListener('click', e => {
-	if (e.target.closest('.round.red')) {
+	if (e.target.closest('.round')) {
 		e.target.closest('.window').remove();
 	}
 });
 
-function addimage() {
-    var img = document.createElement("img");
-    img.src = "./Christmas_TREE.png";
-    
-    img.onload = function () { // Ensure the image is fully loaded
-        var ratio = 0.5; // Set your desired scale ratio
-        img.width = img.naturalWidth * ratio; // Scale width
-        img.height = img.naturalHeight * ratio; // Scale height
-    }     
+// JavaScript for dynamic scaling
+const myWindow = document.querySelector("#myWindow");
+const baseWidth = 400; // Original width of the window
+const baseHeight = 250; // Original height of the window
 
-    var class_name = "foo";
-    img.setAttribute("class", class_name);
-    
-    document.getElementById("window1Content").appendChild(img);
-     $(img).draggable();
-  }
+function scaleWindow(newWidth) {
+    const scaleFactor = newWidth / baseWidth;
+    myWindow.style.transform = `scale(${scaleFactor})`;
+    myWindow.style.transformOrigin = "top left"; // Align scaling neatly
+}
 
-  function addimage2() {
-    var img = document.createElement("img");
-    img.src = "./Christmas_TREE.png";
-    
-    img.onload = function () { // Ensure the image is fully loaded
-        var ratio = 0.5; // Set your desired scale ratio
-        img.width = img.naturalWidth * ratio; // Scale width
-        img.height = img.naturalHeight * ratio; // Scale height
-    }     
-       
-    var class_name = "foo";
-    img.setAttribute("class", class_name);
-    
-    document.getElementById("window2Content").appendChild(img);
-     $(img).draggable();
-  }
+// Example: Scale when the window resizes
+window.addEventListener("resize", () => {
+    const windowWidth = window.innerWidth;
+    const newWidth = Math.min(600, windowWidth * 0.5); // Max width and relative scaling
+    scaleWindow(newWidth);
+});
 
-  const image_pane = document.getElementById("image_1");
+// Initial scaling
+scaleWindow(baseWidth);
 
-  image_pane.addEventListener('click', () => {
-    image_pane.classList.toggle('active');
-  });
+
+const image_pane = document.getElementById("image_1");
+
+image_pane.addEventListener('click', () => {
+image_pane.classList.toggle('active');
+});
